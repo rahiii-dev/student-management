@@ -1,7 +1,8 @@
-```markdown
+
 # Student Management System
 
-A student management system built using Node.js, Express, TypeScript, and MongoDB (Mongoose). This project allows you to manage users, including students and teachers, and assign courses to them.
+A student management system built using Node.js, Express, TypeScript, 
+and MongoDB (Mongoose)
 
 ## Table of Contents
 
@@ -85,4 +86,3 @@ npm start
 ## License
 
 This project is licensed under the MIT License.
-```
