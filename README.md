@@ -39,7 +39,7 @@ and MongoDB (Mongoose)
    touch .env
    ```
 
-   Check `.env-example` folder:
+   Check `.env-example` file for examples
 
 
 5. Build the project:
