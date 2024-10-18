@@ -10,10 +10,10 @@ export default class JWTUtils {
 
   static verifyToken(token: string) {
     try {
-        jwt.verify(token, JWT_SECRET);
-        return true;
+      jwt.verify(token, JWT_SECRET);
+      return true;
     } catch (error) {
-        return false;
+      return false;
     }
   }
 

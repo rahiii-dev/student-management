@@ -1,5 +1,6 @@
 import { Model } from 'mongoose';
 import User, { IUser } from '../model/user.model';
+import { IUserRegistration } from '../interfaces/user.interface';
 
 class UserRepository {
   private readonly model: Model<IUser>;
@@ -16,7 +17,7 @@ class UserRepository {
     }
   }
 
-  async createUser(user: IUser): Promise<IUser> {
+  async createUser(user: IUserRegistration): Promise<IUser> {
     try {
       const newUser = new this.model(user);
       return await newUser.save();
