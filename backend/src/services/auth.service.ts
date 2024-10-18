@@ -25,7 +25,10 @@ class AuthService {
       ...userData,
       password: hashedPassword,
     });
-    const token = JWTUtils.generateToken({ userId: newUser._id });
+    const token = JWTUtils.generateToken({
+      userId: newUser._id,
+      role: newUser.role,
+    });
     const { password, ...userDataWithoutPass } = newUser.toObject();
     return {
       user: userDataWithoutPass,
@@ -50,7 +53,10 @@ class AuthService {
       throw new AppError('Invalid credentials', 400);
     }
 
-    const token = JWTUtils.generateToken({ userId: userData._id });
+    const token = JWTUtils.generateToken({
+      userId: userData._id,
+      role: userData.role,
+    });
 
     const { password: pass, ...userDataWithoutPass } = userData.toObject();
 

@@ -1,10 +1,17 @@
-import jwt from 'jsonwebtoken';
+import jwt, { JwtPayload } from 'jsonwebtoken';
 import { getEnvironmentConfig } from '../config/environment.config';
+import { UserRole } from '../model/user.model';
+import { UserId } from '../interfaces/user.interface';
 
 const { JWT_SECRET } = getEnvironmentConfig();
 
+interface IPayloads extends JwtPayload {
+  userId: UserId;
+  role: UserRole;
+}
+
 export default class JWTUtils {
-  static generateToken(payload: object, expiresIn: string = '1h') {
+  static generateToken(payload: IPayloads, expiresIn: string = '1h') {
     return jwt.sign(payload, JWT_SECRET, { expiresIn });
   }
 
@@ -17,7 +24,7 @@ export default class JWTUtils {
     }
   }
 
-  static decodeToken(token: string) {
-    return jwt.decode(token);
+  static decodeToken(token: string): IPayloads | null {
+    return jwt.decode(token) as IPayloads;
   }
 }

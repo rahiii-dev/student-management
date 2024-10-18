@@ -1,11 +1,14 @@
-import { Document, model, Schema, Types } from 'mongoose';
+import { Document, model, Schema } from 'mongoose';
+import { UserId } from '../interfaces/user.interface';
+
+export type UserRole = 'student' | 'teacher';
 
 export interface IUser extends Document {
-  _id: string | Types.ObjectId;
+  _id: UserId;
   fullName: string;
   email: string;
   password: string;
-  role: 'student' | 'teacher';
+  role: UserRole;
   createdAt: Date;
   updatedAt: Date;
 }
